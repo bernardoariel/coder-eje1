@@ -14,7 +14,12 @@ export class EjercicioNgifNgforComponent implements OnInit {
     new Usuario(5, 'Sakura', 'Haruno', 'sakura@mail.com', 29, true, new Date('1995-08-12')),
     new Usuario(6, 'Itachi', 'Uchiha', 'itachi@mail.com', 21, true, new Date('2002-07-24')),
   ];
+  isLoading:boolean = true;
   ngOnInit(): void {
     // Este es el ciclo de vida ON INIT (al inicializarse) del componente...
+
+    setTimeout(() => {
+      this.isLoading = false
+    }, 2000);
   }
 }

@@ -6,17 +6,18 @@
 
 <!--
   Ejercicio Extra. NG CLASS https://getbootstrap.com/docs/5.3/content/tables/
-  - El modelo de Usuario (ver carpeta models/usuario.model.ts) tiene una propiedad isTop10, si esa propiedad es true
+  - El modelo de Usuario (ver carpeta models/usuario.model.ts)
+    tiene una propiedad isTop10, si esa propiedad es true
   pintar la fila de la tabla aplicando la clase 'table-success'
 -->
 
-<app-loading></app-loading>
+<app-loading *ngIf="isLoading"></app-loading>
 
 <div class="container-fluid">
   <h1 class="mb-3">
     Tabla de usuarios
   </h1>
-  <table class="table table-stripped">
+  <table class="table table-stripped"  >
     <thead>
       <tr>
         <th>Id</th>
@@ -27,6 +28,12 @@
     </thead>
     <tbody>
       <!-- AQUI COMPLETAR EL CONTENIDO -->
+      <tr *ngFor="let usuario of usuarios;let i = index"  [ngClass]="i == 0 && usuario.isTop10 ? 'table-success' : ''">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.firstName}} {{usuario.lastName}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.age}}</td>
+      </tr>
     </tbody>
   </table>
 </div>
